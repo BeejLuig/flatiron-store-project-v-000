@@ -8,7 +8,10 @@
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
-
+  <div class="flash" >
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
 <%= render 'layouts/header' %>
 <%= yield %>
 
