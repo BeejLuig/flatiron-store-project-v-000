@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :carts
-  attr_accessor :current_cart
+  has_one :current_cart, :class_name => "Cart"
 
 end

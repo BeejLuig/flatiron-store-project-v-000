@@ -5,8 +5,8 @@ class Cart < ActiveRecord::Base
 
   def total
     total = 0
-    items.each do |item|
-      total += item.price
+    line_items.each do |line_item|
+      total += line_item.item.price * line_item.quantity
     end
     total
   end
@@ -15,6 +15,8 @@ class Cart < ActiveRecord::Base
     line_item = LineItem.find_by(item_id: item_id, cart_id: self.id)
     if line_item.nil?
       line_item = self.line_items.new(item_id: item_id)
+    else
+      line_item.quantity += 1
     end
     line_item
   end

@@ -2,6 +2,6 @@
 
 <ul>
 <% @category.items.each do |item| %>
-    <li><%= button_to "Add to Cart" if user_signed_in? %><%= link_to item.title, item_path(item) %> - <%= "$#{'%2.2f' % (item.price.to_f/100)}" %></li>
+    <li><%= button_to "Add to Cart" if user_signed_in? %><%= link_to item.title, item_path(item) %> - <%= "$%0.2f" % (item.price.to_f / 100) %></li>
 <% end %>
 </ul>
