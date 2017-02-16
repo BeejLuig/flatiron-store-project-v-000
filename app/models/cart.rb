@@ -21,5 +21,11 @@ class Cart < ActiveRecord::Base
     line_item
   end
 
+  def update_item_inventory
+    self.items.each_with_index do |item, index|
+      item.inventory -= self.line_items[index].quantity
+      item.save
+    end
+  end
 
 end
